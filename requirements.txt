@@ -1,0 +1,7 @@
+skyfield>=1.48
+numpy>=1.26
+pandas>=2.2
+requests>=2.31
+scipy>=1.13
+flask>=3.0
+flask-cors>=4.0

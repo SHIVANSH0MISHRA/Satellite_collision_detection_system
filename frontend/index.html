@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellite Collision Detection System</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- Globe.gl from CDN -->
+    <script src="https://unpkg.com/globe.gl"></script>
+</head>
+<body>
+    <div id="app-container">
+        
+        <!-- Background 3D Globe Container -->
+        <div id="globeViz"></div>
+        
+        <!-- Overlay UI Panel -->
+        <aside class="control-panel">
+            <div class="panel-header">
+                <div class="glow-dot"></div>
+                <h1>ORBITAL<br><span>DEFENSE</span></h1>
+            </div>
+            
+            <p class="subtitle">Real-time Satellite Conjunction Analysis</p>
+            
+            <div class="controls-section">
+                <h3>Simulation Parameters</h3>
+                
+                <div class="control-group">
+                    <label for="group-select">Constellation</label>
+                    <div class="select-wrapper">
+                        <select id="group-select">
+                            <option value="starlink">Starlink</option>
+                            <option value="active">All Active</option>
+                            <option value="iridium">Iridium NEXT</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="control-row">
+                    <div class="control-group half">
+                        <label for="duration-input">Duration (m)</label>
+                        <input type="number" id="duration-input" value="60" min="10" max="1440">
+                    </div>
+                    
+                    <div class="control-group half">
+                        <label for="threshold-input">Threshold (km)</label>
+                        <input type="number" id="threshold-input" value="10.0" step="0.5">
+                    </div>
+                </div>
+                
+                <div class="control-group">
+                    <label for="limit-input">Max Satellites (Limit for speed)</label>
+                    <input type="number" id="limit-input" value="500" min="10">
+                </div>
+                
+                <button id="run-btn" class="primary-btn">
+                    <span>INITIALIZE SCAN</span>
+                    <div class="btn-glow"></div>
+                </button>
+            </div>
+            
+            <div class="results-section">
+                <div class="results-header">
+                    <h3>Predicted Conjunctions</h3>
+                    <span id="threat-count" class="badge bg-green">0</span>
+                </div>
+                
+                <div id="loader" class="hidden">
+                    <div class="spinner"></div>
+                    <p>Propagating orbits and calculating distances...</p>
+                </div>
+                
+                <div id="alerts-container">
+                    <!-- Alerts will be injected here via JS -->
+                    <div class="empty-state">
+                        <p>No active threats detected.<br>Run scan to populate.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </aside>
+    </div>
+    
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
