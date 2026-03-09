@@ -1,6 +1,4 @@
 # Satellite Collision Detection System
-
-## Preview
 ![Dashboard Preview](satellite_scan_complete_1773066956021.png)
 
 ## Overview
@@ -59,5 +57,19 @@ Navigate to `http://127.0.0.1:5000` in your web browser.
 - Email/SMS integrations for specific object alerts (e.g. tracking ISS).
 - Implement WebSockets for true live-streaming of position updates without manual scans.
 
-## License
-MIT License.
+## Original Project Proposal (Sept 2025)
+
+**Started by:** Shivansh Mishra
+**Date:** 19 September 2025  
+
+With thousands of satellites and space debris orbiting Earth, the risk of collisions is rising. This project aims to detect possible collisions and alert relevant systems to prevent damage.
+
+**Proposed Solution**
+- Collect satellite position data (TLE data from CelesTrak / NORAD).
+- Simulate or propagate satellite orbits.
+- Detect potential conjunctions (close approaches).
+- Provide alerts or visualizations for predicted collision events.
+
+**Completed Architecture Stack**
+- **Backend:** Python (Flask, SciPy, NumPy, Skyfield)
+- **Frontend:** Vanilla JS, Globe.gl, Vanilla CSS -> See dashboard features above.
